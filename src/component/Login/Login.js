@@ -1,5 +1,8 @@
 import React from 'react'
 import './Login.css'
+import Nav from '.././nav';
+import { Link } from 'react-router-dom';
+import Cookies from "universal-cookie";
 
 class Login extends React.Component {
    constructor(props) {
@@ -12,9 +15,12 @@ class Login extends React.Component {
 
 async handleSubmit(event) {
   event.preventDefault()
+  const cookies = new Cookies();
+  cookies.set("email", this.state.email[0]);
+  cookies.set("password", this.state.password[0]);
+  console.log(cookies.get("email"));
   const email = this.state.email
   const password = this.state.password
-alert(password);
  fetch('https://aqueous-waters-26248.herokuapp.com/api/users/login', {
     method: 'POST',
     headers: {
@@ -30,10 +36,20 @@ alert(password);
   )
   .then((response) => {
     console.log("Success:", response);
-alert("Logged in")
+    if(response.success){
+    alert("Logged in")
     localStorage.setItem("loggedin", true);
     localStorage.setItem("token", response.token);
-    localStorage.setItem("compname", response.name);
+    localStorage.setItem("name", response.name);
+    alert(response.name)
+  }
+    else if(response.emailnotfound){
+      alert("Email doesn't exist");
+    }
+   else if(response.passwordincorrect){
+      alert('Password incorrect');
+}
+    
   });
 }
  handleChange(event){
@@ -41,19 +57,29 @@ alert("Logged in")
   }   
       render(){
         return (
+          <div>
+          <Nav />
+          
         <div id="loginform">
          <FormHeader title="Login" />
          <div className="row">
-        <input name="email" type="text" placeholder="EMAIL ID" value={this.state.email} onChange={this.handleChange}/>
+        <input name="email" type="text" placeholder="email id" value={this.state.email} onChange={this.handleChange}/>
       </div> 
       <div className="row">
-        <input name="password" type="password" placeholder="PASSWORD" value={this.state.password} onChange={this.handleChange}/>
+        <input name="password" type="password" placeholder="password" value={this.state.password} onChange={this.handleChange}/>
       </div>
               <div className="row">
          <button className="button-login button-1" onClick={this.handleSubmit}>LOGIN</button>
          </div>
-         <OtherMethods />
-         <FormButton title="SignUp" />
+         <div id="alternativeLogin">
+        <div>New user? Then, Register </div>
+      </div>
+         <div className="row">
+           <Link to="/register">
+         <button className="button-login button-1"  >SignUp</button>
+         </Link>
+         </div>
+          </div>
           </div>
         );
         }        
@@ -65,18 +91,4 @@ alert("Logged in")
         <h2 id="headerTitle">{props.title}</h2>
     );
 
-    const FormButton = props => (
-      <div  className="row">
-        <div className="button-login button-1" >
-        {props.title}
-        </div>
-      </div>
-    );
-
-    
-    const OtherMethods = props => (
-      <div id="alternativeLogin">
-        <label>New user? Then, Register </label>
-      </div>
-    );
     export default(Login);

@@ -1,0 +1,16 @@
+ 
+.navigation{
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.876);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.349);
+    color: black;
+    justify-content: space-between;
+    padding: 0.3rem;
+    align-items: center;
+}
+.navigation__link{
+    color: black;
+    text-decoration: none;
+    margin: 1.5rem;
+    font-size: 1.2rem;
+}

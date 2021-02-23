@@ -1,0 +1,11 @@
+.space {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    column-gap: 100px;
+}
+
+.card{
+    margin-top: 50px;
+    align-items: center;
+    height: max-content;
+}
