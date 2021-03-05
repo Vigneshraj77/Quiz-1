@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 
 import { loginAsScoreboardViewer, fetchGameState } from '../reducers/scoreboard';
 import { setLoaderAction, stopLoaderAction } from '../reducers/loader';
-import { CenterLoader } from './Loader';
+import Loader  from './Loader';
 import Logo from './Logo';
 
 const Header = () => {
@@ -185,9 +185,9 @@ const ScoreboardHome = ({
   }, [dispatch]);
 
   if (questionNo === 0 && round <= 0) {
-    return <CenterLoader />;
+    return <Loader />;
   } else if (!triedConnectingToRoom) {
-    return <CenterLoader />;
+    return <Loader />;
   } else if (!connectedToRoom) {
     return <Redirect to="/scoreboard" />;
   }

@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 import {Card} from "react-bootstrap"
 import { loginAsScoreboardViewer } from '../reducers/scoreboard';
 import { Container, Row, Col } from 'react-grid-system';
-import { CenterLoader } from './Loader';
+import Loader from './Loader';
 import Input from './Input';
 import Button from './Button';
 import Nav from './nav'
@@ -23,7 +23,7 @@ const ScoreboardLogin = () => {
   if (connected) {
     return <Redirect to={`/scoreboard/${roomCodeValue}`} />;
   } else if (isLoading) {
-    return <CenterLoader />;
+    return <Loader />;
   }
 
   return (

@@ -14,3 +14,37 @@
     margin: 1.5rem;
     font-size: 1.2rem;
 }
+.button-nav {
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: large;
+    width: 27%;
+    height: 25%;
+    height: 35px;
+    text-align: center;
+    color: #000;
+    /*padding-top: 0.4rem ; */
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+  }
+  .button-1 {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    margin-bottom: "20px";
+    color: #fff;
+    border: 1.5px solid  #fc0a3f;
+    background-image: -webkit-linear-gradient(30deg, #fc0a3f 50%, transparent 50%);
+    background-image: linear-gradient(30deg,  #fc0a3f 50%, transparent 50%);
+    background-size: 500px;
+    background-repeat: no-repeat;
+    background-position: 0%;
+    -webkit-transition: background 300ms ease-in-out;
+    transition: background 300ms ease-in-out;
+  }
+  .button-1:hover {
+    background-position: 100%;
+    color: black;
+    background-color: wheat;
+  }  

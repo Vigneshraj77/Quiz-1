@@ -1,8 +1,8 @@
 import "./PredefQues.css";
-import Quiz from "./components/quiz.js";
+import Quiz from "./components/quiz.jsx";
 import Start from "./components/start.js";
 import React, { Component } from "react";
-
+import Nav from "./nav"
 
 // Main App class
 class PredefQues extends Component {
@@ -47,7 +47,7 @@ class PredefQues extends Component {
             .then((response) => response.json())
             .then((data) => {
                 if (data.response_code === 0) {
-                    alert(data.results[0].question)
+
                     this.setState({
                         questions: data.results,
                         isLoading: false,
@@ -76,8 +76,11 @@ class PredefQues extends Component {
 
 
         return (
+            
             <div className="wrapper">
+                <Nav />
                 {!isRunning && (
+
                     <Start startQuiz={this.startQuiz} categories={categories} />
                 )}
                 {isRunning && (

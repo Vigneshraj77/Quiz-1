@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import { SemipolarLoading } from 'react-loadingg';
 // Start page with selector
 class Start extends Component {
     constructor(props) {
@@ -26,11 +26,14 @@ class Start extends Component {
     }
 
     render() {
+       
         const { category, difficulty, type, difficulties, types } = this.state,
             vals = { category, difficulty, type },
             { categories } = this.props;
         return (
-            <div className="start">
+            <div>
+            
+            <div className="start" style={{alignSelf:"center",width:"40%",marginLeft:"30%",marginTop:"10%"}}>
                 <select
                     id="category"
                     className="button_start"
@@ -72,10 +75,10 @@ class Start extends Component {
 
                 <button
                     className="button_start left"
-                    onClick={() => this.props.startQuiz(vals)}
-                >
+                    onClick={() => this.props.startQuiz(vals)}>
                     Start
                 </button>
+            </div>
             </div>
         );
     }

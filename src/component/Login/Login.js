@@ -3,6 +3,7 @@ import './Login.css'
 import Nav from '.././nav';
 import { Link } from 'react-router-dom';
 import Cookies from "universal-cookie";
+import Loader from '.././Loader'
 
 class Login extends React.Component {
    constructor(props) {
@@ -10,10 +11,12 @@ class Login extends React.Component {
   this.state = { email:"", password:"" }
   this.handleSubmit = this.handleSubmit.bind(this);
   this.handleChange = this.handleChange.bind(this);
+  this.Load = this.Load.bind(this);
 }
  
 
 async handleSubmit(event) {
+  
   event.preventDefault()
   const cookies = new Cookies();
   cookies.set("email", this.state.email[0]);
@@ -21,6 +24,7 @@ async handleSubmit(event) {
   console.log(cookies.get("email"));
   const email = this.state.email
   const password = this.state.password
+  this.Load();
  fetch('https://aqueous-waters-26248.herokuapp.com/api/users/login', {
     method: 'POST',
     headers: {
@@ -42,6 +46,7 @@ async handleSubmit(event) {
     localStorage.setItem("token", response.token);
     localStorage.setItem("name", response.name);
     alert(response.name)
+    window.location.reload();
   }
     else if(response.emailnotfound){
       alert("Email doesn't exist");
@@ -51,6 +56,9 @@ async handleSubmit(event) {
 }
     
   });
+}
+Load(){
+  return <Loader />;
 }
  handleChange(event){
   this.setState({ [event.target.name] : event.target.value}) 
