@@ -32,8 +32,8 @@ class Start extends Component {
             { categories } = this.props;
         return (
             <div>
-            
             <div className="start" style={{alignSelf:"center",width:"40%",marginLeft:"30%",marginTop:"10%"}}>
+            
                 <select
                     id="category"
                     className="button_start"
@@ -73,7 +73,7 @@ class Start extends Component {
                     ))}
                 </select>
 
-                <button
+                <button style={{marginLeft:"185px"}}
                     className="button_start left"
                     onClick={() => this.props.startQuiz(vals)}>
                     Start

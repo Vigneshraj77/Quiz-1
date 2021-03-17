@@ -1,10 +1,8 @@
-import { MDBIcon,
 
-} from "mdbreact";
+
 import React from 'react';
 import Logo from './Logo';
 import "./nav.css"
-import Navbar from 'react-bootstrap/Navbar'
   
 class Nav extends React.Component{
     constructor(props) {
@@ -54,7 +52,7 @@ render(){
           
           <div >
           <a style={{ paddingRight:"15px",textTransform:"uppercase",fontSize:"20px"}}>{name}</a>
-       <button style={{marginTop:"15px"}}className="button-nav  button-1" onClick={handleLogout}>LOGOUT</button>
+       <button style={{marginTop:"15px"}} className="button-nav  button-1" onClick={handleLogout}>LOGOUT</button>
        </div>
        </nav>
         

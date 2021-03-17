@@ -1,18 +1,17 @@
 import React from 'react';
 import {Card} from 'react-bootstrap';
-import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import InputPage from "./QuesInput"
 import "./CreateCustom.css"
 import Nav from './nav'
-class CreateCustom extends React.Component{
+class TimerQuiz extends React.Component{
   constructor(props) {
     super(props);
     this.state={
       numberQuestion:null,
       Quizname :"",
       start: false,
-      
+      timerSec:0,
     };
     this.CreateQues = this.CreateQues.bind(this); 
     this.handleChange = this.handleChange.bind(this);
@@ -26,8 +25,8 @@ class CreateCustom extends React.Component{
   }
     render(){
      if(this.state.start === true){
-      return(<InputPage number={this.state.numberQuestion} 
-        timersec={0} timer={false} quizname={this.state.Quizname}/>);
+      return(<InputPage number={this.state.numberQuestion} quizname={this.state.Quizname}
+        timersec={this.state.timerSec} timer={true}/>);
      }
       return( 
           <div>
@@ -39,7 +38,16 @@ class CreateCustom extends React.Component{
     <h2>CREATE A QUIZ</h2>
             <div  className = "space"> 
             <input type="text" name="Quizname" placeholder="Give your quiz a name" onChange={this.handleChange} value={this.state.Quizname}/>
-    <input type="number" step="5" min ="5"  name="numberQuestion" placeholder="No. of Questions" onChange={this.handleChange} value={this.state.numberQuestion}/>
+    <input type="number" min ="1"  name="numberQuestion" placeholder="No. of Questions" onChange={this.handleChange} value={this.state.numberQuestion}/>
+    </div>
+    <div className = "space">
+        <p style={{fontSize:"20px"}}>Enter the seconds for each question</p>
+    <select name="timerSec" onChange={this.handleChange} value={this.state.timerSec} className="custom-select" style={{height:"40px",fontSize:"18px"}}>
+                      <option value="30">30</option>
+                      <option value="60">60</option>
+                      <option value="90">90</option>
+                      <option value="120">120</option>
+                    </select>
     </div>
     <button style={{width:"fit-content"}} variant="primary" onClick={this.CreateQues}>NEXT STEP</button>
     </Card.Body>
@@ -50,4 +58,4 @@ class CreateCustom extends React.Component{
     }
 }
 
-export default CreateCustom;
+export default TimerQuiz;

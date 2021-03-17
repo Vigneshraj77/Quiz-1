@@ -4,7 +4,7 @@ import Nav from '.././nav';
 import { Link } from 'react-router-dom';
 import Cookies from "universal-cookie";
 import Loader from '.././Loader'
-
+import Home from ".././Home"
 class Login extends React.Component {
    constructor(props) {
    super(props);  
@@ -41,12 +41,10 @@ async handleSubmit(event) {
   .then((response) => {
     console.log("Success:", response);
     if(response.success){
-    alert("Logged in")
     localStorage.setItem("loggedin", true);
     localStorage.setItem("token", response.token);
     localStorage.setItem("name", response.name);
-    alert(response.name)
-    window.location.reload();
+    return(<Home />);
   }
     else if(response.emailnotfound){
       alert("Email doesn't exist");

@@ -3,7 +3,7 @@ import './Signup.css'
 import Nav from '../nav';
 import { Container } from 'react-grid-system';
 import { Link } from 'react-router-dom';
-
+import Home from".././Home"; 
 class Signup extends React.Component {
   constructor(props) {
     super(props);
@@ -38,8 +38,8 @@ class Signup extends React.Component {
       alert("Logged in")
       localStorage.setItem("loggedin", true);
       localStorage.setItem("token", response.token);
-      alert(response.name)
       localStorage.setItem("name", response.name);
+      return(<Home />);
     }
       else if(response.emailnotfound){
         alert("Email doesn't exist");

@@ -33,9 +33,9 @@ const Home = () => {
         </Hidden>
         <Col lg={4}>
           <Card
-            title="Team"
-            subtitle="Apply as a Team to join a Quizz Night!"
-            link="/team"
+            title="Room"
+            subtitle="join a Quizz Night!"
+            link="/Room"
             button="Join!"
           />
         </Col>
@@ -44,11 +44,19 @@ const Home = () => {
             <Card
               title="Scoreboard"
               subtitle="Set up a scoreboard of your Quizz and view the rankings!"
-              link="/scoreboard"
+              link="/Room"
               button="View!"
             />
           </Col>
         </Hidden>
+        <Col lg={4}>
+          <Card
+            title="PreLoaded Question"
+            subtitle="Attempt a quiz with questions that are already available.Select a Category, Field and Difficulty."
+            link="/PredefQues"
+            button="Attempt!"
+          />
+        </Col>
       </Row>
     </Container>
     </div>
