@@ -6,7 +6,7 @@ import Nav from './nav';
 import Button from './Button';
 
 const Card = ({ title, subtitle, link, button }) => (
-  <div className="card">
+  <div className="card" style={{marginLeft:'0px'}}>
     <h2>{title}</h2>
     <h3>{subtitle}</h3>
     <Link to={link}>
@@ -22,7 +22,7 @@ const Home = () => {
     <Container className="home-page top-anxiety" style={{marginTop:"40px"}}>
       <Row>
         <Hidden xs>
-          <Col lg={4}>
+          <Col lg={3}>
             <Card
               title="Quizz Host"
               subtitle="host a Quizz Night!"
@@ -31,7 +31,7 @@ const Home = () => {
             />
           </Col>
         </Hidden>
-        <Col lg={4}>
+        <Col lg={3}>
           <Card
             title="Room"
             subtitle="join a Quizz Night!"
@@ -40,7 +40,7 @@ const Home = () => {
           />
         </Col>
         <Hidden xs>
-          <Col lg={4}>
+        <Col lg={3}>
             <Card
               title="Scoreboard"
               subtitle="Set up a scoreboard of your Quizz and view the rankings!"
@@ -49,11 +49,11 @@ const Home = () => {
             />
           </Col>
         </Hidden>
-        <Col lg={4}>
+        <Col lg={3}>
           <Card
             title="PreLoaded Question"
             subtitle="Attempt a quiz with questions that are already available.Select a Category, Field and Difficulty."
-            link="/PredefQues"
+            link="/predefinedques"
             button="Attempt!"
           />
         </Col>

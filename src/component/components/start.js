@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { SemipolarLoading } from 'react-loadingg';
+import {Card} from 'react-bootstrap';
 // Start page with selector
 class Start extends Component {
     constructor(props) {
@@ -32,8 +33,8 @@ class Start extends Component {
             { categories } = this.props;
         return (
             <div>
-            <div className="start" style={{alignSelf:"center",width:"40%",marginLeft:"30%",marginTop:"10%"}}>
-            
+                <Card className="start" style={{alignItems:"center",width:"40%",marginLeft:"30%",marginTop:"5%"}}>
+            <Card.Title style={{textAlign:"center"}}>< h2>PREDEFINED QUESTIONS</h2></Card.Title>
                 <select
                     id="category"
                     className="button_start"
@@ -73,12 +74,12 @@ class Start extends Component {
                     ))}
                 </select>
 
-                <button style={{marginLeft:"185px"}}
-                    className="button_start left"
+                <button style={{marginLeft:"40%",width:"20%",marginRight:"40%"}}
                     onClick={() => this.props.startQuiz(vals)}>
                     Start
                 </button>
-            </div>
+
+            </Card>
             </div>
         );
     }

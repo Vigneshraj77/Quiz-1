@@ -1,6 +1,5 @@
 import React from 'react';
 import {Card} from 'react-bootstrap';
-import {Link} from 'react-router-dom'
 import Container from 'react-bootstrap/Container';
 import InputPage from "./QuesInput"
 import "./CreateCustom.css"

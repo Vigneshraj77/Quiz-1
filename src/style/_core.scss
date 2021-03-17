@@ -324,20 +324,17 @@ button {
 }
 
 .card {
-
   background: $grey;
   border: 0.125rem solid $light;
   padding: 5px;
   text-align: center;
   height: 100%;
-
   h2 {
     font-family: 'BadaBoom BB';
     font-weight: normal;
     font-size: 3em;
   }
-
   button {
-    margin-top: 25px;
+    margin-top: 15px;
   }
 }
