@@ -15,7 +15,8 @@
 }
 
 .value {
-  font-size: 40px;
+  font-size: 25px;
+  font-weight: lighter;
 }
 
 .info {

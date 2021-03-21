@@ -11,7 +11,8 @@ class TimerQuiz extends React.Component{
       numberQuestion:null,
       Quizname :"",
       start: false,
-      timerSec:0,
+      timer:true,
+      timerSec:30,
     };
     this.CreateQues = this.CreateQues.bind(this); 
     this.handleChange = this.handleChange.bind(this);
@@ -25,8 +26,10 @@ class TimerQuiz extends React.Component{
   }
     render(){
      if(this.state.start === true){
+       console.log(this.state.timerSec);
       return(<InputPage number={this.state.numberQuestion} quizname={this.state.Quizname}
-        timersec={this.state.timerSec} timer={true}/>);
+        timersec={this.state.timerSec} timer={this.state.timer}
+        cutoff={0}/>);
      }
       return( 
           <div>

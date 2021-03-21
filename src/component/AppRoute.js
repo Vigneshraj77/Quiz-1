@@ -12,7 +12,7 @@ import Login from './Login/Login.js';
 import Signup from './Signup/Signup.js';
 import Nav from './nav';
 import QuesInput from './QuesInput'
-
+import LevelHome from './LevelHome'
 import TimerQuiz from './TimerQuiz'
 const AppRoute = () => {
   const crashed = useSelector(state => state.websocket.crashed);
@@ -35,6 +35,9 @@ const AppRoute = () => {
         </Route>
         <Route path="/createcustom">
           <CreateCustom />
+        </Route>
+        <Route path="/leveltype">
+          <LevelHome />
         </Route>
         <Route path="/nav">
           <Nav />

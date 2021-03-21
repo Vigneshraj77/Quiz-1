@@ -5,13 +5,14 @@ import Container from 'react-bootstrap/Container';
 import './QuesInput.css';
 import HostEnd from "./HostEnd"
 
-class QuesInput extends React.Component{
+class LevelInput extends React.Component{
   constructor(props) {
     super(props);
   this.state={
     roomcode: 0,
     isCompleted : false,
     index : 0,
+    level : 1,
     selected: 0,
     option1 : "",
     option2 : "",
@@ -27,10 +28,11 @@ class QuesInput extends React.Component{
   this.finished = this.finished.bind(this);
   this.handleChange = this.handleChange.bind(this); 
   }
-  finished(){
-    this.nextQues();
-    const roomcode= Math.floor(1000 + Math.random()*9000);
-    this.setState({roomcode : roomcode})
+componentDidMount(){
+        const roomcode= Math.floor(1000 + Math.random()*9000);
+        this.setState({roomcode : roomcode});
+}
+  finished(){    
     const questions=this.state.questionArray;
     const options=this.state.optionsArray;
     const correctoption=this.state.correctAnswers;
@@ -44,7 +46,7 @@ class QuesInput extends React.Component{
       },
       body: JSON.stringify({
         roomname:this.props.quizname,
-        roomcode:roomcode,
+        roomcode:this.state.roomcode,
         questions:questions,
         options:options,
         correctanswers:correctoption,
@@ -53,16 +55,26 @@ class QuesInput extends React.Component{
         timersec : timersec,
         cutoff : this.props.cutoff,
         totallevel : this.props.totallevel,
-        level : this.props.level,
+        level : this.state.level,
       })
-    }).then((res) => res.json(roomcode))
+    }).then((res) => res.json(res))
     .catch((error) =>
       alert("Show me error that cannot be specify", error)
     )
     .then((response) => {
-      this.setState({isCompleted : true});
+        if(this.state.level == this.props.totallevel){
+      this.setState({isCompleted : true});  }
+       else{
+           this.setState({questionArray: []});
+           this.setState({optionsArray: []});
+           this.setState({correctoption: []});
+           this.setState({index : 0});
+           this.setState({level : this.state.level+1});
+           this.clearInputs();
+       }
       console.log("Success:", response);
     }); 
+    this.nextQues();
   }
   nextQues(){
     let { questionArray, optionsArray, correctAnswers } = this.state;
@@ -88,6 +100,7 @@ class QuesInput extends React.Component{
     this.setState({ [event.target.name] : event.target.value}) 
     }   
     render(){
+
       if(this.state.isCompleted){
         return( <HostEnd roomcode={this.state.roomcode} />);
       }
@@ -111,6 +124,7 @@ class QuesInput extends React.Component{
                 <Card style={{ width: '45%' }} >
                   <Card.Title><h2 style={{fontSize:"25px"}}>{quizname}</h2></Card.Title>
                   <Card.Subtitle>Question No. {this.state.index+1}</Card.Subtitle>
+                  <Card.Subtitle>Level . {this.state.level}</Card.Subtitle>
           <Card.Body>
             
            <div  className = "space">   
@@ -148,4 +162,4 @@ class QuesInput extends React.Component{
     }
 }
 
-export default QuesInput;
+export default LevelInput;

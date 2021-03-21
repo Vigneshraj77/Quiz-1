@@ -3,6 +3,7 @@ import {Card} from 'react-bootstrap';
 import Nav from './nav'
 import CustomQuiz from './CustomQuiz/CustomQuiz.js'
 import TimerAttend from './TimerAttend/QuizAttend.js'
+import LevelQuiz from './LevelQuiz/LevelQuiz.js';
 
 class RoomHome extends React.Component{
     constructor(props) {
@@ -45,6 +46,10 @@ render(){
     if(this.state.Running === true){
     if(this.state.questions.timer){
         return(<TimerAttend questions={this.state.questions}/>);
+    }
+    else if(this.state.questions.cutoff != 0){
+        return(<LevelQuiz questions={this.state.questions} />);
+        
     }
     else{
         return(
