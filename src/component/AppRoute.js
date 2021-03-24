@@ -19,7 +19,7 @@ const AppRoute = () => {
   const popUpActive = useSelector(state => state.popUp.active);
 
   return (
-    <Router basename={window.location.pathname || ''}>
+    <Router>
       <Switch>
         <Route exact path="/">
           <Home />

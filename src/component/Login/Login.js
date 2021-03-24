@@ -61,7 +61,6 @@ Load(){
         return (
           <div>
           <Nav />
-          
         <div id="loginform">
          <FormHeader title="Login" />
          <div className="row">
