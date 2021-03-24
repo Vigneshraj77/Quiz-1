@@ -37,7 +37,7 @@ class LevelHome extends React.Component{
           <div align = "center" style={{marginTop:"10px"}}>
         <Card style={{ width: '25rem' }} >
   <Card.Body>
-    <h2>CREATE A QUIZ</h2>
+    <h2>CREATE A LEVEL-BASED QUIZ</h2>
             <div  className = "space"> 
             <input type="text" name="Quizname" placeholder="Give your quiz a name" onChange={this.handleChange} value={this.state.Quizname}/>
     <input type="number" min ="1"  name="numberQuestion" placeholder="No. of Questions" onChange={this.handleChange} value={this.state.numberQuestion}/>

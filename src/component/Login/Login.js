@@ -13,10 +13,7 @@ class Login extends React.Component {
   this.handleChange = this.handleChange.bind(this);
   this.Load = this.Load.bind(this);
 }
- 
-
 async handleSubmit(event) {
-  
   event.preventDefault()
   const cookies = new Cookies();
   cookies.set("email", this.state.email[0]);
@@ -52,7 +49,6 @@ async handleSubmit(event) {
    else if(response.passwordincorrect){
       alert('Password incorrect');
 }
-    
   });
 }
 Load(){
@@ -90,9 +86,6 @@ Load(){
         );
         }        
       }
-
-
-     
     const FormHeader = props => (
         <h2 id="headerTitle">{props.title}</h2>
     );

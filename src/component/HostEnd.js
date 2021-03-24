@@ -8,6 +8,7 @@ class HostEnd extends React.Component{
     }
 render(){          
       return(   
+          <div>
       <div style={{alignSelf:"center"}}>
           <Nav />
           <Card style={{width:"50%",marginLeft:"325px",}}>
@@ -16,6 +17,7 @@ render(){
 </Card.Title>
 
               </Card>  
+        </div>
         </div>
 )}
     }

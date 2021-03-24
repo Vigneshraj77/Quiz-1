@@ -1,11 +1,9 @@
 import React, { Component } from "react";
 import he from "he";
 import {Card} from 'react-bootstrap'
-import { SemipolarLoading } from 'react-loadingg';
 import Score from"./Score"
 
 class quiz extends Component {
-   
     constructor(props) {
         super(props);
         this.state = {
@@ -27,7 +25,6 @@ class quiz extends Component {
              else{
              this.setState({index:this.state.index+1})
          }}
-
 render(){
     if(this.state.isComplete === true){
         return( <Score  score={this.state.score} number={this.state.index+1}/>);

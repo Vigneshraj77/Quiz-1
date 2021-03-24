@@ -6,7 +6,6 @@ import {Card} from 'react-bootstrap'
 import { CountdownCircleTimer } from "react-countdown-circle-timer";
 import './CustomQuiz.css'
 class TimerAttend extends Component {
-   
     constructor(props) {
         super(props);
         this.state = {
@@ -18,11 +17,9 @@ class TimerAttend extends Component {
         this.nextQuestion = this.nextQuestion.bind(this);
         this.nextQuestionTigger = this.nextQuestionTigger.bind(this);
          }
-       
          nextQuestion(selected,correct){
              if(selected === correct){
-                 this.setState({score : this.state.score+1})
-             }
+                 this.setState({score : this.state.score+1}) }
              if(this.state.index===(this.props.questions.questions).length-1){
                  console.log(this.state.score)
                  this.setState({isComplete: true})
@@ -33,13 +30,11 @@ class TimerAttend extends Component {
          nextQuestionTigger(){
             if(this.state.index===(this.props.questions.questions).length-1){
                 console.log(this.state.score)
-                this.setState({isComplete: true})
-                             }
-                             else{
+                this.setState({isComplete: true})  }
+           else{
             this.setState({index:this.state.index+1});}
             return [true,100]
        }
-
 render(){
     if(this.state.isComplete === true){
         return( <Score  score={this.state.score} number={this.state.index+1}/>);
@@ -59,7 +54,6 @@ render(){
           </div>
         );
       };
-      
    return( 
        <div >
        <Nav />
@@ -105,8 +99,6 @@ render(){
                </Card.Body>
             </Card>
             </Container>
-       </div>       
-   )
-};
-}
+       </div>     )
+};   }
 export default TimerAttend;

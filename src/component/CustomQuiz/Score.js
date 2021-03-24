@@ -1,13 +1,14 @@
 import React from 'react';
 import { Component } from 'react';
 import {Card} from 'react-bootstrap';
-
+import Nav from './../nav';
  class Score extends Component {
     constructor(props) {
         super(props);}
         render(){
 return(
     <div>
+        <Nav />
         <Card>
        <Card.Title>
           <h2> SCORE</h2>
